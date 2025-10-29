@@ -3,9 +3,10 @@ import useFetch from "../src/useFetch";
 import Header from "../components/Header";
 
 const Details = () => {
-  const { data, loading, error } = useFetch("http://localhost:3000/events");
+  const { data, loading, error } = useFetch(
+    "https://meetup-app-backend-final.vercel.app/"
+  );
   const { eventId } = useParams();
-  console.log(data);
 
   const formatedData = (date) => {
     const formatedDate = new Date(date).toLocaleString("en-IN", {

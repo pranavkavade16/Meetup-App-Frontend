@@ -4,7 +4,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 const Events = ({ searchData }) => {
   const [eventType, setEventType] = useState("Both");
-  const { data, loading, error } = useFetch("http://localhost:3000/events");
+  const { data, loading, error } = useFetch(
+    "https://meetup-app-backend-final.vercel.app/"
+  );
+  console.log(data);
 
   const formatedData = (date) => {
     const formatedDate = new Date(date).toLocaleString("en-IN", {
