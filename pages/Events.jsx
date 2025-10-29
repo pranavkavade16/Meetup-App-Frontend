@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Events = ({ searchData }) => {
   const [eventType, setEventType] = useState("Both");
   const { data, loading, error } = useFetch(
-    "https://meetup-app-backend-final.vercel.app/"
+    "https://meetup-app-backend-final.vercel.app/events"
   );
   console.log(data);
 
