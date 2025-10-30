@@ -21,9 +21,9 @@ const Details = () => {
     return formatedDate;
   };
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
-  if (!data) return <p>No data available</p>;
+  if (loading) return <p className="m-4">Loading...</p>;
+  if (error) return <p className="m-4">Error: {error}</p>;
+  if (!data) return <p className="m-4">No data available</p>;
 
   const eventData = data?.find((event) => event._id == eventId);
   return (
@@ -68,7 +68,7 @@ const Details = () => {
             </div>
 
             <div className="col-md-4">
-              <div className="card mb-3">
+              <div className="card m-2">
                 <div className="card-body">
                   <p>
                     <i className="fas fa-clock me-2"></i>

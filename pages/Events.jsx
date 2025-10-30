@@ -22,9 +22,9 @@ const Events = ({ searchData }) => {
     return formatedDate;
   };
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
-  if (!data) return <p>No data available</p>;
+  if (loading) return <p className="m-4">Loading...</p>;
+  if (error) return <p className="m-4">Error: {error}</p>;
+  if (!data) return <p className="m-4">No data available</p>;
 
   const getFilteredData = () => {
     let filtered = data;
@@ -67,35 +67,37 @@ const Events = ({ searchData }) => {
             <div className="col-12">
               <div>
                 {filteredData?.map((event) => (
-                  <Link
-                    to={`/details/${event._id}`}
-                    style={{ textDecoration: "none", color: "inherit" }}
-                  >
-                    <div className="card mb-4">
-                      <img
-                        src={event.eventPhotoUrl}
-                        class="card-img-top"
-                        style={{ height: "400px", objectFit: "cover" }}
-                        alt="Event Photo"
-                      />
-                      <div className="card-img-overlay">
-                        <span className="position-absolute top-0 start-0 m-3 bg-white rounded px-2 py-1">
-                          <small style={{ fontWeight: 700 }}>
-                            {event.eventType}
-                          </small>
-                        </span>
+                  <div key={event._id}>
+                    <Link
+                      to={`/details/${event._id}`}
+                      style={{ textDecoration: "none", color: "inherit" }}
+                    >
+                      <div className="card mb-4">
+                        <img
+                          src={event.eventPhotoUrl}
+                          class="card-img-top"
+                          style={{ height: "400px", objectFit: "cover" }}
+                          alt="Event Photo"
+                        />
+                        <div className="card-img-overlay">
+                          <span className="position-absolute top-0 start-0 m-3 bg-white rounded px-2 py-1">
+                            <small style={{ fontWeight: 700 }}>
+                              {event.eventType}
+                            </small>
+                          </span>
+                        </div>
+                        <div className="card-body">
+                          <h5 className="card-title">{event.title}</h5>
+                          <p className="card-text">{event.details}</p>
+                          <p className="card-text">
+                            <small className="text-body-secondary">
+                              {formatedData(event.date)}
+                            </small>
+                          </p>
+                        </div>
                       </div>
-                      <div className="card-body">
-                        <h5 className="card-title">{event.title}</h5>
-                        <p className="card-text">{event.details}</p>
-                        <p className="card-text">
-                          <small className="text-body-secondary">
-                            {formatedData(event.date)}
-                          </small>
-                        </p>
-                      </div>
-                    </div>
-                  </Link>
+                    </Link>
+                  </div>
                 ))}
               </div>
             </div>
