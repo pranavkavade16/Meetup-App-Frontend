@@ -36,7 +36,11 @@ const Events = ({ searchData }) => {
       filtered = data.filter(
         (event) =>
           event.title.toLowerCase().includes(searchData.toLowerCase()) ||
-          event.eventType.toLowerCase().includes(searchData.toLowerCase())
+          event.eventType.toLowerCase().includes(searchData.toLowerCase()) ||
+          event.details.toLowerCase().includes(searchData.toLowerCase()) ||
+          event.eventTags
+            .map((tag) => tag.toLowerCase())
+            .includes(searchData.toLowerCase())
       );
     }
     return filtered;

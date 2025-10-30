@@ -44,7 +44,7 @@ const Details = () => {
               <img
                 src={eventData.eventPhotoUrl}
                 alt="Event Photo"
-                className="w-75 rounded mb-3"
+                className="w-75 rounded mb-3 d-block mx-auto"
               />
               <div className="col-md-8">
                 <h3>Details:</h3>
